@@ -1,4 +1,4 @@
-expression ::== ( var || num ) ( ' ' symbol ' ' ( var || num ) )*
+expression ::== ( var || num ) ( ' ' symbol ' ' ( var || num ) )* \n
 
 symbol ::== '==' || '!=' || '&&' || '||'
 
