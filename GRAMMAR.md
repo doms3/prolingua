@@ -18,26 +18,26 @@ whilestatement ::==  &nbsp; &nbsp; 'while' ' ' var ' ' logic ' ' ( var || bool )
 
 printstatement ::==  &nbsp; &nbsp;&nbsp;  print ' ' ( var || num || string )
 
-assignstatement ::== &nbsp;&nbsp; 'set' ' ' var ' ' 'to' ' ' ( expression || string )
+assignstatement ::== &nbsp; 'set' ' ' var ' ' 'to' ' ' ( expression || string )
 
 forstatement ::==   &nbsp; &nbsp; &nbsp; &nbsp;  'for' ' ' var ' ' in ' ' ( 'range' ' ' int ':' int || var )
 
 chunk ::== &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;   ifblock || whileblock || forblock || printstatement \n || assignstatement \n
 
-ifblock ::==    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;      ifstatement \n ( \t chunk )* elifblock* elseblock? \n
+ifblock ::==    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;      ifstatement \n ( \t chunk )* elifblock* elseblock? \n
 
-elifblock ::==    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;    elifstatement \n ( \t chunk )*
+elifblock ::==    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;     elifstatement \n ( \t chunk )*
 
-elseblock ::==    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;    elsestatement \n ( \t chunk )*
+elseblock ::==    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;     elsestatement \n ( \t chunk )*
 
-whileblock ::==    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  whilestatement \n ( \t chunk )*
+whileblock ::==    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  whilestatement \n ( \t chunk )*
 
-forblock ::==      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;    forstatement \n ( \t chunk )*
+forblock ::==      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;    forstatement \n ( \t chunk )*
 
-digit ::==    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;        [0-9]
+digit ::==    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;        [0-9]
 
-int ::==      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;          digit+
+int ::==      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;           digit+
 
-num :==         &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;      int ( '.' int )?
+num :==         &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;       int ( '.' int )?
 
-string ::==    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;        '"' .* '"'
+string ::==    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;        '"' .* '"'
