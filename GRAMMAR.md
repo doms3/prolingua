@@ -1,41 +1,43 @@
-expression ::== ( var || num ) ( ' ' symbol ' ' ( var || num ) )*
+expression ::==  &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ( var || num ) ( ' ' symbol ' ' ( var || num ) )*
 
-symbol ::== '==' || '!=' || '&&' || '||'
+symbol ::==  &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; '==' || '!=' || '&&' || '||' || '*' || '+' || '/' || '-' || '%' || '<' || '<=' || '>=' || '>'
 
-var ::== [a-z]+
+var ::==              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [a-z]+
 
-ifstatement ::== 'if' ' ' var ' ' logic ' ' ( var || bool ) ' ' 'then'
+ifstatement ::== &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'if' ' ' var ' ' logic ' ' ( var || bool ) ' ' 'then'
 
-logic ::== ( 'is' || 'is not' )
+logic ::== &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ( 'is' || 'is not' )
 
-bool ::== ( 'true' || 'false' )
+bool ::== &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ( 'true' || 'false' )
 
-elifstatement ::== 'or' ' ' ifstatement
+elifstatement ::== &nbsp; &nbsp; &nbsp;&nbsp;  'or' ' ' ifstatement
 
-elsestatement ::== 'otherwise'
+elsestatement ::== &nbsp; &nbsp; &nbsp;  'otherwise'
 
-whilestatement ::== 'while' ' ' var ' ' logic ' ' ( var || bool ) ' ' 'do'
+whilestatement ::==  &nbsp; &nbsp; 'while' ' ' var ' ' logic ' ' ( var || bool ) ' ' 'do'
 
-printstatement ::== print ' ' ( var || num )
+printstatement ::==  &nbsp; &nbsp;&nbsp;  print ' ' ( var || num || string )
 
-assignstatement ::== 'set' ' ' var ' ' 'to' ' ' expression
+assignstatement ::== &nbsp; 'set' ' ' var ' ' 'to' ' ' ( expression || string )
 
-forstatement ::== 'for' ' ' var ' ' in ' ' ( 'range' ' ' int ':' int || var )
+forstatement ::==   &nbsp; &nbsp; &nbsp; &nbsp;  'for' ' ' var ' ' in ' ' ( 'range' ' ' int ':' int || var )
 
-chunk ::== ifblock || whileblock || forblock || printstatement \n || assignstatement \n
+chunk ::== &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;   ifblock || whileblock || forblock || printstatement \n || assignstatement \n
 
-ifblock ::== ifstatement \n ( \t chunk )* elifblock* elseblock? \n
+ifblock ::==    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;      ifstatement \n ( \t chunk )* elifblock* elseblock? \n
 
-elifblock ::== elifstatement \n ( \t chunk )*
+elifblock ::==    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;     elifstatement \n ( \t chunk )*
 
-elseblock ::== elsestatement \n ( \t chunk )*
+elseblock ::==    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;     elsestatement \n ( \t chunk )*
 
-whileblock ::== whilestatement \n ( \t chunk )*
+whileblock ::==    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  whilestatement \n ( \t chunk )*
 
-forblock ::== forstatement \n ( \t chunk )*
+forblock ::==      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;    forstatement \n ( \t chunk )*
 
-digit ::== [0-9]
+digit ::==    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;        [0-9]
 
-int ::== digit+
+int ::==      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;           digit+
 
-num :== int ( '.' int )?
+num :==         &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;       int ( '.' int )?
+
+string ::==    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;        '"' .* '"'
