@@ -16,13 +16,13 @@ elsestatement ::== &nbsp; &nbsp; &nbsp;  'otherwise'
 
 whilestatement ::==  &nbsp; &nbsp; 'while' ' ' var ' ' logic ' ' ( var || bool ) ' ' 'do'
 
-printstatement ::==  &nbsp; &nbsp; print ' ' ( var || num || string )
+printstatement ::==  &nbsp; &nbsp;&nbsp;  print ' ' ( var || num || string )
 
 assignstatement ::== &nbsp;&nbsp; 'set' ' ' var ' ' 'to' ' ' ( expression || string )
 
-forstatement ::==   &nbsp;&nbsp; &nbsp;&nbsp;  'for' ' ' var ' ' in ' ' ( 'range' ' ' int ':' int || var )
+forstatement ::==   &nbsp; &nbsp; &nbsp; &nbsp;  'for' ' ' var ' ' in ' ' ( 'range' ' ' int ':' int || var )
 
-chunk ::== &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ifblock || whileblock || forblock || printstatement \n || assignstatement \n
+chunk ::== &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;   ifblock || whileblock || forblock || printstatement \n || assignstatement \n
 
 ifblock ::==    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;     ifstatement \n ( \t chunk )* elifblock* elseblock? \n
 
