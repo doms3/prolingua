@@ -1,16 +1,16 @@
-expression ::==  &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ( var || num ) ( ' ' symbol ' ' ( var || num ) )*
+expression ::==  &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ( var || num ) ( ' ' symbol ' ' ( var || num ) )*
 
-symbol ::==  &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; '==' || '!=' || '&&' || '||' || '*' || '+' || '/' || '-' || '%' || '<' || '<=' || '>=' || '>'
+symbol ::==  &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; '==' || '!=' || '&&' || '||' || '*' || '+' || '/' || '-' || '%' || '<' || '<=' || '>=' || '>'
 
-var ::==              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [a-z]+
+var ::==              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [a-z]+
 
-ifstatement ::== &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'if' ' ' var ' ' logic ' ' ( var || bool ) ' ' 'then'
+ifstatement ::== &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 'if' ' ' var ' ' logic ' ' ( var || bool ) ' ' 'then'
 
-logic ::== &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ( 'is' || 'is not' )
+logic ::== &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ( 'is' || 'is not' )
 
-bool ::== &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ( 'true' || 'false' )
+bool ::== &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ( 'true' || 'false' )
 
-elifstatement ::== &nbsp; &nbsp; &nbsp; 'or' ' ' ifstatement
+elifstatement ::== &nbsp; &nbsp; &nbsp;&nbsp;  'or' ' ' ifstatement
 
 elsestatement ::== &nbsp; &nbsp; &nbsp;  'otherwise'
 
