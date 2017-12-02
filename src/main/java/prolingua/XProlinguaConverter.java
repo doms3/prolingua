@@ -23,20 +23,24 @@ public class XProlinguaConverter {
 			//eliminate and count the indents
 			while(currentLine.startsWith("[\t]")) {
 				currentLine = currentLine.substring(1, currentLine.length());
-				spacing += "\t";
+				engl += "\t";
 			}
 			
 			//analyze each word
 			String[] words = currentLine.split("[\\s]");
 			
+			// will return the English translation
+			for (String word : words) {
+				engl += JsonConverter.getInstance().getTranslation(word) + " ";
+			}
 			
-			
+			engl += "\n";
 			
 		}
 		
 		
 		
-		return null;
+		return engl;
 	}
 	
 }
