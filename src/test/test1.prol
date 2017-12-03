@@ -1,9 +1,4 @@
-set a to 7
+set a to 2 + 2
 
 if a is 9 then
-	while a is 9 do
-		print 5
-	print 6
-
-if a is 8 then
-	print "b"
+	print a
