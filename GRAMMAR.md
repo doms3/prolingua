@@ -1,4 +1,4 @@
-program ::== &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ( chunk '\n'+ )+
+program ::== &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ( chunk '\n'+ )+
 
 expression ::==  &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ( var || num ) ( ' ' symbol ' ' ( var || num ) )*
 
