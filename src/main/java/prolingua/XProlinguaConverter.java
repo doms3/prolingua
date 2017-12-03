@@ -36,25 +36,25 @@ public class XProlinguaConverter {
 			
 			// will return the English translation
 			for (String word : words) {
-				String nextWord = JsonConverter.getInstance().getTranslation(word) ;
 				
 				//This section checks for brackets, which will not translate
-				if(nextWord.startsWith("\"")) {
+				if(word.startsWith("\"")) {
 					quote = true;
-					engl += nextWord + " ";
+					engl += word + " ";
 				}
-				else if((quote)&&(nextWord.endsWith("\""))) {
+				else if((quote)&&(word.endsWith("\""))) {
 					quote = false;
-					engl += nextWord + " ";
+					engl += word + " ";
 				}
 				else if (quote) {
-					engl += nextWord + " ";
+					engl += word + " ";
 				}
 				
 				//This section checks for the "is not"/"no es" conversion
 				// which should be ignored if in brackets
 				else {
-					
+					String nextWord = JsonConverter.getInstance().getTranslation(word);
+
 					if((hardCode)&&(nextWord.equals("is"))){
 						engl += "is not ";
 						hardCode = false;
@@ -78,7 +78,7 @@ public class XProlinguaConverter {
 	
 	public static void main(String [] args) throws FileNotFoundException {
 		XProlinguaConverter x = new XProlinguaConverter(); 
-		System.out.println(x.convertToEnglProlingua("spanish_example"));
+		System.out.println(x.convertToEnglProlingua("spanish_example.txt"));
 	}
 
 }
