@@ -6,7 +6,8 @@ assignar prolingua a falso
 assignar indice a 0
 
 mientras b no es 0 hacer 
-	c, assignar b a b , c % b 
+	 assignar b a b 
+	 assignar c a c % b
 
 imprimir ("%d", %c)
 
@@ -25,5 +26,4 @@ si prolingua es falso entonces
 para indice en rango 1:10 hacer 
 	assignar b a b + c 
 	imprimir ("%d" %b)
-
 
