@@ -97,7 +97,13 @@ public class PythonInterpreter extends ProlinguaBaseListener {
     }
 
     public void enterAssignstatement(ProlinguaParser.AssignstatementContext cxt) {
-        python.append( String.format("%s = %s", cxt.VAR(), cxt.expression().getText() ) );
+        if( cxt.FALSEPRIME() != null ) {
+            python.append( String.format("%s = %s", cxt.VAR(), cxt.FALSEPRIME().getText() ) );
+        } else if( cxt.TRUEPRIME() != null ) {
+            python.append( String.format("%s = %s", cxt.VAR(), cxt.TRUEPRIME().getText() ) );
+        } else {
+            python.append(String.format("%s = %s", cxt.VAR(), cxt.expression().getText()));
+        }
     }
 
     public void enterForstatement(ProlinguaParser.ForstatementContext cxt ) {

@@ -16,7 +16,7 @@ elsestatement : 'otherwise';
 
 whilestatement : 'while' ' ' VAR ' ' LOGIC ' ' ( VAR | TRUE | FALSE | NUM ) ' do';
 printstatement : 'print ' ( VAR || NUM || STRING );
-assignstatement : 'set ' VAR ' to ' expression;
+assignstatement : 'set ' VAR ' to ' ( expression | TRUEPRIME | FALSEPRIME );
 forstatement : 'for ' VAR ' in ' ( 'range ' RANGE | VAR );
 
 /* Lexer Rules */
@@ -35,9 +35,9 @@ STRING : '"' ~'"'* '"';
 LOGIC : 'is' | 'is not';
 
 TRUE : 'is ' TRUEPRIME;
-fragment TRUEPRIME : 'True' | 'not False';
+TRUEPRIME : 'True' | 'not False';
 FALSE : 'is ' FALSEPRIME;
-fragment FALSEPRIME : 'False' | 'not True';
+FALSEPRIME : 'False' | 'not True';
 
 
 VAR : [a-z]+;
