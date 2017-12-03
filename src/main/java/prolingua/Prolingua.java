@@ -1,30 +1,47 @@
-//package prolingua;
-//
-//import java.io.BufferedReader;
-//import java.util.Scanner;
-//
-//public class Prolingua {
-//    public static void main(String... args){
-//        String language;
-//        if (args.length==0){
-//            language="english";
-//        }
-//        else {
-//            language=args[0];
-//        }
-//
-//
-//    }
-//    public static void translate(String language){
-//        String input = readProlingua("prolinguaCode.txt");
-//        writeProlingua(language,input,"yourCode.py");
-//    }
-//
-//    public static String readProlingua(String inputFileName){
-//        Scanner scanner = new Scanner(inputFileName);
-//        BufferedReader reader = new BufferedReader();
-//    }
-//    public static void writeProlingua(String language, String prolinguaInput, String outputFile){
-//
-//    }
-//}
+package prolingua;
+
+import java.io.*;
+import java.util.Scanner;
+
+public class Prolingua {
+    public static void main(String... args) throws IOException {
+        String language;
+        if (args.length==0){
+            language="english";
+        }
+        else {
+            language=args[0].trim();
+        }
+        translate(language);
+    }
+    public static void translate(String language) throws IOException {
+        String input;
+        if (language.equals("english")) {
+            Scanner sc = new Scanner(new FileInputStream("prolinguaCode.txt"));
+
+            // check entire document, will take each line as a string, keeping spacing
+            StringBuilder collected = new StringBuilder("");
+            while (sc.hasNextLine()) {
+
+                String currentLine = sc.nextLine();
+                collected.append(currentLine);
+
+            }
+            input=collected.toString();
+        }
+        else {
+           input = readProlingua("prolinguaCode.txt", language);
+        }
+
+        writeProlingua(input, "yourCode.py");
+    }
+
+    public static String readProlingua(String inputFileName, String language) throws FileNotFoundException {
+        return XProlinguaConverter.convertToEnglProlingua(inputFileName);
+    }
+    public static void writeProlingua(String prolinguaInput, String outputFile) throws IOException {
+        PrintWriter writer = new PrintWriter(new OutputStreamWriter(
+                new FileOutputStream(outputFile)));
+        writer.write(new PythonInterpreter(prolinguaInput).getPython());
+    }
+}
