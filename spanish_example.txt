@@ -21,7 +21,7 @@ sino
 si var es falso entonces 
 	imprimir ("error")
 si prolingua es falso entonces 
-	imprimir ("éxito")
+	imprimir ("exito")
 
 para indice en rango 1:10 hacer 
 	assignar b a b + c 
