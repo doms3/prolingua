@@ -9,20 +9,27 @@ import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.TokenStream;
 import org.antlr.v4.runtime.tree.ParseTreeWalker;
 
-import java.io.FileInputStream;
-
 import java.io.IOException;
+import java.io.InputStream;
 
 public class PythonInterpreter extends ProlinguaBaseListener {
 
     private final StringBuilder python;
     private final ProlinguaParser.ProgramContext tree;
 
-    private int numTabs = 0;
+    PythonInterpreter( InputStream i ) throws IOException {
+        CharStream stream = CharStreams.fromStream(i);
+        ProlinguaLexer lexer = new ProlinguaLexer(stream);
+        TokenStream tokens = new CommonTokenStream(lexer);
+        ProlinguaParser parser = new ProlinguaParser(tokens);
 
-    PythonInterpreter(String fileName) throws IOException {
-        FileInputStream f = new FileInputStream(fileName);
-        CharStream stream = CharStreams.fromStream(f);
+        tree = parser.program();
+
+        python = new StringBuilder();
+    }
+
+    PythonInterpreter( String s ) throws IOException {
+        CharStream stream = CharStreams.fromString( s );
         ProlinguaLexer lexer = new ProlinguaLexer(stream);
         TokenStream tokens = new CommonTokenStream(lexer);
         ProlinguaParser parser = new ProlinguaParser(tokens);
@@ -93,7 +100,14 @@ public class PythonInterpreter extends ProlinguaBaseListener {
         python.append( String.format("%s = %s", cxt.VAR(), cxt.expression().getText() ) );
     }
 
-
+    public void enterForstatement(ProlinguaParser.ForstatementContext cxt ) {
+        if( cxt.RANGE() != null ) {
+            String[] nums = cxt.RANGE().getText().split(":");
+            python.append( String.format( "for %s in range(%s,%s):", cxt.VAR(0).toString(), nums[0], nums[1] ) );
+        } else {
+            python.append( String.format( "for %s in %s:", cxt.VAR(0).toString(), cxt.VAR(1).toString() ) );
+        }
+    }
 
     public String getPython() {
         ParseTreeWalker walker = new ParseTreeWalker();
@@ -103,7 +117,8 @@ public class PythonInterpreter extends ProlinguaBaseListener {
 
 
     public static void main( String[] args ) throws Exception {
-        System.out.println( new PythonInterpreter("src/test/test1.prol" ).getPython() );
+
+        System.out.println( new PythonInterpreter(  XProlinguaConverter.convertToEnglProlingua("spanish_example.txt" ) ).getPython() );
     }
 
 

@@ -1,4 +1,6 @@
-set a to 2 + 2
-
-if a is 9 then
-	print a
+assignar b a 10
+assignar c a 30
+assignar name a 1000000000 
+assignar var a cierto 
+assignar prolingua a falso
+assignar indice a 0
