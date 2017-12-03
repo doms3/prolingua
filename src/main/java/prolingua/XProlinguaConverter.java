@@ -23,7 +23,7 @@ public class XProlinguaConverter {
 			String currentLine = sc.nextLine();
 
 			// eliminate and count the indents
-			while (currentLine.startsWith("[\t]")) {
+			while (currentLine.startsWith("\t")) {
 				currentLine = currentLine.substring(1, currentLine.length());
 				engl += "\t";
 			}
