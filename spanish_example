@@ -1,0 +1,7 @@
+assignar b a 10
+assignar a a 30 
+
+mientras b no es 0
+	a, assignar b a b , a % b 
+
+imprimir "%d" %a
