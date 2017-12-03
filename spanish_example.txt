@@ -6,7 +6,8 @@ assignar prolingua a falso
 assignar indice a 0
 
 mientras b no es 0 hacer 
-	c, assignar b a b , c % b 
+	 assignar b a b 
+	 assignar c a c % b
 
 imprimir ("%d", %c)
 
@@ -21,8 +22,6 @@ si var es falso entonces
 	imprimir ("error")
 si prolingua es falso entonces 
 	imprimir ("éxito")
-
-imprimir ("tom is a pussy")
 
 para indice en rango 1:10 hacer 
 	assignar b a b + c 
