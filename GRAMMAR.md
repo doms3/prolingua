@@ -1,3 +1,5 @@
+program ::== &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; ( chunk '\n'+ )+
+
 expression ::==  &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ( var || num ) ( ' ' symbol ' ' ( var || num ) )*
 
 symbol ::==  &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; '==' || '!=' || '&&' || '||' || '*' || '+' || '/' || '-' || '%' || '<' || '<=' || '>=' || '>'
@@ -22,7 +24,7 @@ assignstatement ::== &nbsp; 'set' ' ' var ' ' 'to' ' ' ( expression || string )
 
 forstatement ::==   &nbsp; &nbsp; &nbsp; &nbsp;  'for' ' ' var ' ' in ' ' ( 'range' ' ' int ':' int || var )
 
-chunk ::== &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;   ifblock || whileblock || forblock || printstatement \n || assignstatement \n
+chunk ::== &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;   ifblock || whileblock || forblock || printstatement || assignstatement
 
 ifblock ::==    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;      ifstatement \n ( \t chunk )* elifblock* elseblock? \n
 
