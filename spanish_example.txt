@@ -9,7 +9,7 @@ mientras b no es 0
 
 imprimir "%d" %c
 
-imprimir ('Hola Mundo!!\n', c)
+imprimir ('Hola Mundo!!\n')
 
 si name no es 1000000000 
 	imprimir "error"
