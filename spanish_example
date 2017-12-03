@@ -5,3 +5,5 @@ mientras b no es 0
 	a, assignar b a b , a % b 
 
 imprimir "%d" %a
+
+imprimir ('Hello World\n', a)
