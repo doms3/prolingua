@@ -31,30 +31,47 @@ public class XProlinguaConverter {
 			// analyze each word
 			String[] words = currentLine.split("[\\s]");
 
+			boolean bracket = false;
 			boolean hardCode = false;
+			
 			// will return the English translation
 			for (String word : words) {
 				String nextWord = JsonConverter.getInstance().getTranslation(word) ;
 				
-				if((hardCode)&&(nextWord.equals("is"))){
-					engl += "is not ";
-					hardCode = false;
-				}
-				else if( (hardCode)&&(!(nextWord.equals("is")))) {
-					engl += "not " + nextWord + " ";
-				}
-				else if ((!hardCode)&&(nextWord.equals("not"))) {
-					hardCode = true;
-				}
-				else if(!hardCode){
+				//This section checks for brackets, which will not translate
+				if(nextWord.startsWith("(\"")) {
+					bracket = true;
 					engl += nextWord + " ";
 				}
+				else if((bracket)&&(nextWord.endsWith("\")"))) {
+					bracket = false;
+					engl += nextWord + " ";
+				}
+				else if (bracket) {
+					engl += nextWord + " ";
+				}
+				
+				//This section checks for the "is not"/"no es" conversion
+				// which should be ignored if in brackets
+				else {
+					
+					if((hardCode)&&(nextWord.equals("is"))){
+						engl += "is not ";
+						hardCode = false;
+					}
+					else if( (hardCode)&&(!(nextWord.equals("is")))) {
+						engl += "not " + nextWord + " ";
+					}
+					else if ((!hardCode)&&(nextWord.equals("not"))) {
+						hardCode = true;
+					}
+					else if(!hardCode){
+						engl += nextWord + " ";
+					}
+				}
 			}
-
 			engl += "\n";
-
 		}
-
 		return engl;
 	}
 	
