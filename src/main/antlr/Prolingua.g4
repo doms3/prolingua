@@ -4,9 +4,9 @@ grammar Prolingua;
 
 /* Parser Rules */
 
-program : group+;
+program : group+ EOF;
 
-group : line+ ( NEWLINE+ | EOF );
+group : line+ ( NEWLINE+ );
 
 line : TAB* ( elifstatement | ifstatement | elsestatement | whilestatement | printstatement | assignstatement | forstatement | expression ) NEWLINE;
 
