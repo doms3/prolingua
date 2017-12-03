@@ -11,7 +11,8 @@ or	      : o
 while     : mientras   
 do	      : hacer      
 for       : para       
-in range  : en rango  
+range     : rango 
+in        : en 
 otherwise : sino      
 set 	  : assignar 
 to 		  : a
