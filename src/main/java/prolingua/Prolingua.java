@@ -13,7 +13,7 @@ public class Prolingua {
             language=args[0];
         }
 
-        
+
     }
     public static void translate(String language){
         String input = readProlingua("prolinguaCode.txt");

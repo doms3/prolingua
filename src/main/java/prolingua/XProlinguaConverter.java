@@ -31,7 +31,7 @@ public class XProlinguaConverter {
 			// analyze each word
 			String[] words = currentLine.split("[\\s]");
 
-			boolean bracket = false;
+			boolean quote = false;
 			boolean hardCode = false;
 			
 			// will return the English translation
@@ -39,15 +39,15 @@ public class XProlinguaConverter {
 				String nextWord = JsonConverter.getInstance().getTranslation(word) ;
 				
 				//This section checks for brackets, which will not translate
-				if(nextWord.startsWith("(\"")) {
-					bracket = true;
+				if(nextWord.startsWith("\"")) {
+					quote = true;
 					engl += nextWord + " ";
 				}
-				else if((bracket)&&(nextWord.endsWith("\")"))) {
-					bracket = false;
+				else if((quote)&&(nextWord.endsWith("\""))) {
+					quote = false;
 					engl += nextWord + " ";
 				}
-				else if (bracket) {
+				else if (quote) {
 					engl += nextWord + " ";
 				}
 				
