@@ -4,32 +4,26 @@ grammar Prolingua;
 
 /* Parser Rules */
 
-program : ( chunk '\n'+ )+;
+program : ( line NEWLINE* )*;
+
+line : TAB* ( elifstatement | ifstatement | elsestatement | whilestatement | printstatement | assignstatement | forstatement | expression ) NEWLINE;
 
 expression : ( VAR | NUM ) ( ' ' SYMBOL ' ' ( VAR | NUM ) )*;
 
-ifstatement : 'if ' VAR ' ' LOGIC ' ' ( VAR | TRUE | FALSE | NUM ) ' then';
+ifstatement : 'if ' VAR ' ' ( TRUE | FALSE | ( LOGIC ' ' ( VAR | NUM ) ) ) ' then';
 elifstatement : 'or' ifstatement;
 elsestatement : 'otherwise';
 
 whilestatement : 'while' ' ' VAR ' ' LOGIC ' ' ( VAR | TRUE | FALSE | NUM ) ' do';
 printstatement : 'print ' ( VAR || NUM || STRING );
 assignstatement : 'set ' VAR ' to ' expression;
-forstatement : 'for ' VAR ' in ' ( 'range ' RANGE || VAR );
-
-chunk : ifblock || whileblock || forblock || printstatement || assignstatement;
-
-ifblock : ifstatement '\n' ( '\t' chunk )* elifblock* elseblock?;
-elifblock : elifstatement '\n '( '\t' chunk )*;
-elseblock : elsestatement '\n' ( '\t' chunk )*;
-whileblock : whilestatement '\n' ( '\t' chunk )*;
-forblock : forstatement '\n' ( '\t' chunk )*;
-
+forstatement : 'for ' VAR ' in ' ( 'range ' RANGE | VAR );
 
 /* Lexer Rules */
-
 TAB : '\t';
 SYMBOL : '==' | '!=' | '&&' | '||' | '+' | '-' | '*' | '/' | '%' | '<=' | '<' | '>' | '>=';
+
+NEWLINE : '\n' | '\n\r';
 
 RANGE : INT ':' INT;
 fragment DIGIT : [0-9];
@@ -40,8 +34,10 @@ STRING : '"' ~'"'* '"';
 
 LOGIC : 'is' | 'is not';
 
-TRUE : 'true';
-FALSE : 'false';
+TRUE : 'is ' TRUEPRIME;
+fragment TRUEPRIME : 'true' | 'not false';
+FALSE : 'is ' FALSEPRIME;
+fragment FALSEPRIME : 'false' | 'not true';
 
 
 VAR : [a-z]+;

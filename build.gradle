@@ -20,4 +20,3 @@ dependencies {
     antlr "org.antlr:antlr4:4.7"
     compile group: 'org.antlr', name: 'antlr4', version: '4.7'
 }
-
