@@ -43,7 +43,7 @@ public class XProlinguaConverter {
 				else if( (hardCode)&&(!(nextWord.equals("is")))) {
 					engl += "not " + nextWord + " ";
 				}
-				else if (nextWord.equals("not")) {
+				else if ((!hardCode)&&(nextWord.equals("not"))) {
 					hardCode = true;
 				}
 				else if(!hardCode){
