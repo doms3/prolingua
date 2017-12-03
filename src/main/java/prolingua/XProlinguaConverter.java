@@ -34,7 +34,7 @@ public class XProlinguaConverter {
 			boolean hardCode = false;
 			// will return the English translation
 			for (String word : words) {
-				String nextWord = JsonConverter.getInstance().getTranslation(word) + " ";
+				String nextWord = JsonConverter.getInstance().getTranslation(word) ;
 				
 				if((hardCode)&&(nextWord.equals("is"))){
 					engl += "is not ";
