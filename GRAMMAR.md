@@ -1,4 +1,4 @@
-expression ::==  &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ( var || num ) ( ' ' symbol ' ' ( var || num ) )*
+expression ::==  &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ( var || num ) ( ' ' symbol ' ' ( var || num ) )
 
 symbol ::==  &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; '==' || '!=' || '&&' || '||' || '*' || '+' || '/' || '-' || '%' || '<' || '<=' || '>=' || '>'
 
