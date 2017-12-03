@@ -22,9 +22,8 @@ si var es falso entonces
 si prolingua es falso entonces 
 	imprimir ("éxito")
 
-imprimir ("tom is a pussy")
-
 para indice en rango 1:10 hacer 
 	assignar b a b + c 
 	imprimir ("%d" %b)
+
 
