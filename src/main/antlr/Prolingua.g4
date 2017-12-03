@@ -19,11 +19,9 @@ forstatement : 'for ' VAR ' in ' ( 'range ' RANGE || VAR );
 
 chunk : ifblock || whileblock || forblock || printstatement || assignstatement;
 
-ifblock : ifstatement '\n' ( '\t' chunk )* elifblock* elseblock?;
-elifblock : elifstatement '\n '( '\t' chunk )*;
-elseblock : elsestatement '\n' ( '\t' chunk )*;
-whileblock : whilestatement '\n' ( '\t' chunk )*;
-forblock : forstatement '\n' ( '\t' chunk )*;
+ifblock : ifstatement '\n' ( '\t' chunk)* (elifstatement '\n '( '\t' chunk)*)* (elsestatement '\n' ( '\t' chunk)*)?;
+whileblock : whilestatement '\n' ( '\t' chunk '\n')*;
+forblock : forstatement '\n' ( '\t' chunk '\n')*;
 
 
 /* Lexer Rules */

@@ -1,16 +1,16 @@
 package prolingua;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import org.antlr.v4.gui.*;
+import generatedcode.ProlinguaLexer;
+import generatedcode.ProlinguaParser;
+import org.antlr.v4.gui.Trees;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.TokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;
-import org.prolingua.pythoninterpreter.ProlinguaLexer;
-import org.prolingua.pythoninterpreter.ProlinguaParser;
+
+import java.io.FileInputStream;
+import java.io.IOException;
 
 
 public class AntlrTester {

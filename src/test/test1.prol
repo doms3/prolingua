@@ -1,6 +1,6 @@
 set a to 9
 
 if a is 9 then
-	print a
+    print a
 otherwise
     print "This!"
