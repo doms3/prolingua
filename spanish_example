@@ -1,9 +1,24 @@
 assignar b a 10
-assignar c a 30 
+assignar c a 30
+assignar name a 1000000000 
+assignar var a cierto 
+assignar prolingua a falso
 
 mientras b no es 0
 	c, assignar b a b , c % b 
 
 imprimir "%d" %c
 
-imprimir ('Hello World\n', c)
+imprimir ('Hola Mundo!!\n', c)
+
+si name no es 1000000000 
+	imprimir "error"
+sino
+	imprimir "OK"
+
+si var es falso 
+	imprimir "error"
+si prolingua es falso
+	imprimir "éxito"
+
+imprimir "tom is a pussy"
