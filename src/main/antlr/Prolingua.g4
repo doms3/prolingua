@@ -35,9 +35,9 @@ STRING : '"' ~'"'* '"';
 LOGIC : 'is' | 'is not';
 
 TRUE : 'is ' TRUEPRIME;
-fragment TRUEPRIME : 'true' | 'not false';
+fragment TRUEPRIME : 'True' | 'not False';
 FALSE : 'is ' FALSEPRIME;
-fragment FALSEPRIME : 'false' | 'not true';
+fragment FALSEPRIME : 'False' | 'not True';
 
 
 VAR : [a-z]+;

@@ -56,7 +56,7 @@ public class PythonInterpreter extends ProlinguaBaseListener {
 
     public void enterIfstatement(ProlinguaParser.IfstatementContext cxt) {
         if( cxt.FALSE() != null ) {
-            python.append( String.format( "if !%s:", cxt.VAR(0).getText() ) );
+            python.append( String.format( "if not %s:", cxt.VAR(0).getText() ) );
         } else if( cxt.TRUE() != null ) {
             python.append( String.format( "if %s:", cxt.VAR(0).getText() ) );
         } else {
@@ -77,7 +77,7 @@ public class PythonInterpreter extends ProlinguaBaseListener {
 
     public void enterWhilestatement(ProlinguaParser.WhilestatementContext cxt ) {
         if( cxt.FALSE() != null ) {
-            python.append( String.format( "while !%s:", cxt.VAR(0).getText() ) );
+            python.append( String.format( "while not %s:", cxt.VAR(0).getText() ) );
         } else if( cxt.TRUE() != null ) {
             python.append( String.format( "while %s:", cxt.VAR(0).getText() ) );
         } else {
