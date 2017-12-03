@@ -4,7 +4,7 @@ grammar Prolingua;
 
 /* Parser Rules */
 
-program : ( line NEWLINE* )*;
+program : ( ( line )* NEWLINE+ )+;
 
 line : TAB* ( elifstatement | ifstatement | elsestatement | whilestatement | printstatement | assignstatement | forstatement | expression ) NEWLINE;
 
