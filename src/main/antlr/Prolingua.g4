@@ -1,5 +1,7 @@
 grammar Prolingua;
 
+@header {package generatedcode;}
+
 /* Parser Rules */
 
 program : ( chunk '\n'+ )+;

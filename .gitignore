@@ -22,12 +22,14 @@
 hs_err_pid*
 
 # Gradle Stuff
-/.gradle/
+.gradle/
 
 # IDE Files
-/.idea/
+.idea/
 
 # Misc.
 *.iml
 *.xml
 
+# ANTLR
+generatedcode/
