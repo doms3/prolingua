@@ -1,5 +1,6 @@
-Welcome to prolinga!! 
+Welcome to prolinga, the all inclusive programming language!! Prolingua is an easy to use language for beginner programmers.
 
+This is the translation scheme we have followed.
 
 ENGLISH   : SPANISH
 -------------------
@@ -11,9 +12,10 @@ while     : mientras
 do	      : hacer      
 for       : para       
 in range  : en rango  
-otherwise : si no      
+otherwise : sino      
 set 	  : assignar 
 to 		  : a
+not       : no 
 
 true 	  : cierto 
 false 	  : falso 
