@@ -1,8 +1,23 @@
 apply plugin: 'java'
+apply plugin: 'antlr'
 
 repositories {
     jcenter()
     mavenCentral()
 }
 
-dependencies {}
+def generatedJavaSourcesDir = 'src/main/java/generatedcode'
+
+generateGrammarSource{
+    outputDirectory = file(generatedJavaSourcesDir)
+}
+
+compileJava {
+    dependsOn generateGrammarSource
+}
+
+dependencies {
+    antlr "org.antlr:antlr4:4.7"
+    compile group: 'org.antlr', name: 'antlr4', version: '4.7'
+}
+
