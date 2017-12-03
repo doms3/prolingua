@@ -10,8 +10,7 @@ public class Prolingua {
             language="english";
         }
         else {
-            language="spanish";
-            //args[0].trim();
+            language=args[0].trim();
         }
         translate(language);
     }
