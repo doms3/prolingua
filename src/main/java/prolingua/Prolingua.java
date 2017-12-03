@@ -10,7 +10,8 @@ public class Prolingua {
             language="english";
         }
         else {
-            language=args[0].trim();
+            language="spanish";
+            //args[0].trim();
         }
         translate(language);
     }
@@ -24,7 +25,7 @@ public class Prolingua {
             while (sc.hasNextLine()) {
 
                 String currentLine = sc.nextLine();
-                collected.append(currentLine);
+                collected.append(currentLine+"\n");
 
             }
             input=collected.toString();
@@ -32,7 +33,6 @@ public class Prolingua {
         else {
            input = readProlingua("prolinguaCode.txt", language);
         }
-
         writeProlingua(input, "yourCode.py");
     }
 
@@ -43,5 +43,6 @@ public class Prolingua {
         PrintWriter writer = new PrintWriter(new OutputStreamWriter(
                 new FileOutputStream(outputFile)));
         writer.write(new PythonInterpreter(prolinguaInput).getPython());
+        writer.close();
     }
 }
