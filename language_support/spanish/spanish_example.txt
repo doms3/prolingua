@@ -6,8 +6,8 @@ assignar prolingua a Falso
 assignar indice a 0
 
 mientras b no es 0 hacer
-	 assignar b a b
-	 assignar c a c % b
+	assignar b a b
+	assignar c a c % b
 
 imprimir c
 

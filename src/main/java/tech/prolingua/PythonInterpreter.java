@@ -7,8 +7,6 @@ import org.antlr.v4.runtime.*;
 import org.antlr.v4.runtime.tree.ParseTreeWalker;
 
 import java.io.*;
-import java.nio.file.Files;
-import java.util.List;
 
 public class PythonInterpreter extends ProlinguaBaseListener {
 
@@ -126,7 +124,7 @@ public class PythonInterpreter extends ProlinguaBaseListener {
 
 
     public static void main( String[] args ) throws Exception {
-        File file = new File("spanish_example.txt" );
+        File file = new File("language_support/spanish/spanish_example.txt" );
         String english = EnglishLanguageConverter.convert( file, "spanish" );
 
         System.out.println( new PythonInterpreter( new ByteArrayInputStream( english.getBytes() ) ).getPython() );

@@ -4,7 +4,7 @@ grammar Prolingua;
 
 /* Parser Rules */
 
-program : group+;
+program : group+ EOF;
 
 group : line+ NEWLINE+;
 

@@ -30,7 +30,7 @@ public class ANTLRTreeVisualizer {
 	}
 	
 	public static void main ( String[] args ) throws IOException {
-		File f = new File( "spanish_example.txt" );
+		File f = new File( "language_support/spanish/spanish_example.txt" );
 		ANTLRTreeVisualizer.viewSpanishTree( f );
 	}
 }

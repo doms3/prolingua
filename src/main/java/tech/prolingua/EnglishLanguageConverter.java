@@ -17,7 +17,7 @@ public class EnglishLanguageConverter {
 	public static String convert( File in, String language ) throws FileNotFoundException, IOException {
 		List<String> lines = Files.readAllLines( in.toPath() );
 		String allLines = "";
-		for (String line : lines) {
+		for ( String line : lines ) {
 			allLines = allLines + "\n\r" + line;
 		}
 		return convert( allLines, language );
@@ -40,18 +40,14 @@ public class EnglishLanguageConverter {
 			}
 		}
 
+		in = in.trim();
 		return in;
 	}
 	
 	
 	public static void main( String[] args ) throws IOException {
-	    File file = new File( "spanish_example.txt" );
-		List<String> lines = Files.readAllLines( file.toPath() );
-		String allLines = "";
-		for (String line : lines) {
-			allLines = allLines + "\n\r" + line;
-		}
-		System.out.println( convert( allLines, "spanish" ) );
+	    File file = new File( "language_support/spanish/spanish_example.txt" );
+		System.out.println( convert( file, "spanish" ) );
 	}
 
 }
