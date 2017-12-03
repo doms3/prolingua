@@ -1,0 +1,4 @@
+{"if": "si", "is": "es", "then": "entonces", "or": "o",
+ "while": "mientras", "do" : "hacer", "for": "para", "range": "rango",
+ "otherwise": "sino", "set": "assignar", "to": "a", "True" : "Cierto",
+ "False" : "Falso", "print": "imprimir", "break": "romper", "in": "en", "not" : "no", "is not" : "no es" }

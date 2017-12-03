@@ -1,4 +1,4 @@
-Welcome to prolinga, the all inclusive programming language!! Prolingua is an easy to use language for beginner programmers.
+Welcome to prolinga, the all inclusive programming language! Prolingua is an easy to use language for beginner programmers.
 
 This is the translation scheme we have followed.
 

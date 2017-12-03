@@ -1,12 +1,12 @@
 assignar b a 10
 assignar c a 30
-assignar name a 1000000000 
+assignar name a 1000000000
 assignar var a Cierto
 assignar prolingua a Falso
 assignar indice a 0
 
-mientras b no es 0 hacer 
-	 assignar b a b 
+mientras b no es 0 hacer
+	 assignar b a b
 	 assignar c a c % b
 
 imprimir c
@@ -23,7 +23,7 @@ si var es Falso entonces
 si prolingua es Falso entonces
 	imprimir "exito"
 
-para indice en rango 1:10 hacer 
-	assignar b a b + c 
+para indice en rango 1:10
+	assignar b a b + c
 	imprimir b
 

@@ -1,5 +1,7 @@
 # Compiled class file
 *.class
+*.py
+
 
 # Log file
 *.log
@@ -23,13 +25,10 @@ hs_err_pid*
 
 # Gradle Stuff
 .gradle/
+build/
 
 # IDE Files
 .idea/
-
-# Misc.
-*.iml
-*.xml
 
 # ANTLR
 generatedcode/

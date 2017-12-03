@@ -1,16 +1,14 @@
-package prolingua;
+package tech.prolingua;
 
 import generatedcode.ProlinguaBaseListener;
 import generatedcode.ProlinguaLexer;
 import generatedcode.ProlinguaParser;
-import org.antlr.v4.runtime.CharStream;
-import org.antlr.v4.runtime.CharStreams;
-import org.antlr.v4.runtime.CommonTokenStream;
-import org.antlr.v4.runtime.TokenStream;
+import org.antlr.v4.runtime.*;
 import org.antlr.v4.runtime.tree.ParseTreeWalker;
 
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
+import java.nio.file.Files;
+import java.util.List;
 
 public class PythonInterpreter extends ProlinguaBaseListener {
 
@@ -20,6 +18,7 @@ public class PythonInterpreter extends ProlinguaBaseListener {
     PythonInterpreter( InputStream i ) throws IOException {
         CharStream stream = CharStreams.fromStream(i);
         ProlinguaLexer lexer = new ProlinguaLexer(stream);
+        lexer.removeErrorListener( ConsoleErrorListener.INSTANCE );
         TokenStream tokens = new CommonTokenStream(lexer);
         ProlinguaParser parser = new ProlinguaParser(tokens);
 
@@ -39,7 +38,11 @@ public class PythonInterpreter extends ProlinguaBaseListener {
         python = new StringBuilder();
     }
 
-    public void enterLine(ProlinguaParser.LineContext cxt) {
+    public void exitGroup( ProlinguaParser.GroupContext cxt ) {
+        cxt.NEWLINE().forEach( r -> python.append('\n'));
+    }
+
+    public void enterLine( ProlinguaParser.LineContext cxt ) {
         cxt.TAB().forEach(r -> python.append("\t"));
         if( cxt.expression() != null ) {
             python.append( cxt.expression().getText() );
@@ -123,8 +126,10 @@ public class PythonInterpreter extends ProlinguaBaseListener {
 
 
     public static void main( String[] args ) throws Exception {
+        File file = new File("spanish_example.txt" );
+        String english = EnglishLanguageConverter.convert( file, "spanish" );
 
-        System.out.println( new PythonInterpreter(  XProlinguaConverter.convertToEnglProlingua("spanish_example.txt" ) ).getPython() );
+        System.out.println( new PythonInterpreter( new ByteArrayInputStream( english.getBytes() ) ).getPython() );
     }
 
 
