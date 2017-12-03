@@ -4,7 +4,7 @@ grammar Prolingua;
 
 /* Parser Rules */
 
-program : ( line NEWLINE* )*;
+program : ( ( line )* NEWLINE+ )+;
 
 line : TAB* ( elifstatement | ifstatement | elsestatement | whilestatement | printstatement | assignstatement | forstatement | expression ) NEWLINE;
 
@@ -23,7 +23,7 @@ forstatement : 'for ' VAR ' in ' ( 'range ' RANGE | VAR );
 TAB : '\t';
 SYMBOL : '==' | '!=' | '&&' | '||' | '+' | '-' | '*' | '/' | '%' | '<=' | '<' | '>' | '>=';
 
-NEWLINE : '\n';
+NEWLINE : '\n' | '\n\r';
 
 RANGE : INT ':' INT;
 fragment DIGIT : [0-9];

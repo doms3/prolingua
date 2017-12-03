@@ -16,10 +16,9 @@ import org.antlr.v4.runtime.tree.ParseTree;
 
 public class AntlrTester {
 	
-	public void veiwTree(String file) throws IOException{
-		FileInputStream f = new FileInputStream(file);
-		
-		CharStream stream = CharStreams.fromStream(f);
+	public void viewTree( String file ) throws IOException{
+		String english = XProlinguaConverter.convertToEnglProlingua( file );
+		CharStream stream = CharStreams.fromString( english );
 		ProlinguaLexer lexer = new ProlinguaLexer(stream);
 		TokenStream tokens = new CommonTokenStream(lexer);
 		ProlinguaParser parser = new ProlinguaParser(tokens);
@@ -28,8 +27,8 @@ public class AntlrTester {
 		Trees.inspect(tree, parser);
 	}
 	
-	public static void main (String [] args) throws IOException {
+	public static void main ( String [] args ) throws IOException {
 		AntlrTester a = new AntlrTester();
-		a.veiwTree("src/test/test1.prol");
+		a.viewTree("spanish_example.txt");
 	}
 }

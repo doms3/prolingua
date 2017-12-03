@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class XProlinguaConverter {
 
-	public String convertToEnglProlingua(String fileName) throws FileNotFoundException {
+	public static String convertToEnglProlingua(String fileName) throws FileNotFoundException {
 		
 		
 		// to return this string
