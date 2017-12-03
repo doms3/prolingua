@@ -31,22 +31,22 @@ public class XProlinguaConverter {
 			// analyze each word
 			String[] words = currentLine.split("[\\s]");
 
-			boolean bracket = false;
+			boolean quote = false;
 			boolean hardCode = false;
 			
 			// will return the English translation
 			for (String word : words) {
 				
 				//This section checks for brackets, which will not translate
-				if(word.startsWith("(\"")) {
-					bracket = true;
+				if(word.startsWith("\"")) {
+					quote = true;
 					engl += word + " ";
 				}
-				else if((bracket)&&(word.endsWith("\")"))) {
-					bracket = false;
+				else if((quote)&&(word.endsWith("\""))) {
+					quote = false;
 					engl += word + " ";
 				}
-				else if (bracket) {
+				else if (quote) {
 					engl += word + " ";
 				}
 				
@@ -54,7 +54,7 @@ public class XProlinguaConverter {
 				// which should be ignored if in brackets
 				else {
 					String nextWord = JsonConverter.getInstance().getTranslation(word);
-					
+
 					if((hardCode)&&(nextWord.equals("is"))){
 						engl += "is not ";
 						hardCode = false;
