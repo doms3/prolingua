@@ -12,9 +12,9 @@ public class JsonConverter {
 	
 	private static final Set<String> TRANSLATIONS = new HashSet<String>(Arrays.asList(
 			"si", "es", "entonces", "o",
-			 "mientras", "hacer", "para", "en rango", 
+			 "mientras", "hacer", "para", "en", "rango", 
 			 "sino", "assignar", "a", "cierto", 
-			 "falso", "imprimir", "romper"							));
+			 "falso", "imprimir", "romper", "no"		));
 	private static JsonReader reader;
 	private static JsonObject allTranslations;
 	private static JsonConverter singleton;
