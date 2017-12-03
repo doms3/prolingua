@@ -3,22 +3,28 @@ assignar c a 30
 assignar name a 1000000000 
 assignar var a cierto 
 assignar prolingua a falso
+assignar indice a 0
 
-mientras b no es 0
+mientras b no es 0 hacer 
 	c, assignar b a b , c % b 
 
-imprimir "%d" %c
+imprimir ("%d", %c)
 
-imprimir ('Hola Mundo!!\n', c)
+imprimir ("Hola Mundo!!\n")
 
-si name no es 1000000000 
-	imprimir "error"
+si name no es 1000000000 entonces
+	imprimir ("error")
 sino
-	imprimir "OK"
+	imprimir ("OK")
 
-si var es falso 
-	imprimir "error"
-si prolingua es falso
-	imprimir "éxito"
+si var es falso entonces 
+	imprimir ("error")
+si prolingua es falso entonces 
+	imprimir ("éxito")
 
-imprimir "tom is a pussy"
+imprimir ("tom is a pussy")
+
+para indice en rango 1:10 hacer 
+	assignar b a b + c 
+	imprimir ("%d" %b)
+
