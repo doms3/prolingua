@@ -1,9 +1,9 @@
 assignar b a 10
-assignar a a 30 
+assignar c a 30 
 
 mientras b no es 0
-	a, assignar b a b , a % b 
+	c, assignar b a b , c % b 
 
-imprimir "%d" %a
+imprimir "%d" %c
 
-imprimir ('Hello World\n', a)
+imprimir ('Hello World\n', c)
