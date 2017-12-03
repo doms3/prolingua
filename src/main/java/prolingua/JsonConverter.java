@@ -46,7 +46,7 @@ public class JsonConverter {
 	 */
 	public static String getTranslation(String s) {
 		if (JsonConverter.TRANSLATIONS.contains(s)) {
-			return(JsonConverter.allTranslations.getString("s"));
+			return(JsonConverter.allTranslations.getString(s));
 		}
 		else return s;
 	}

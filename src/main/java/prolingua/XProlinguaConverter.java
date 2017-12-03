@@ -7,13 +7,15 @@ import java.util.Scanner;
 
 public class XProlinguaConverter {
 
-	public String convertToEnglProlingua(String xProl) throws FileNotFoundException {
+	public String convertToEnglProlingua(String fileName) throws FileNotFoundException {
+		
+		
 		// to return this string
 		String engl = "";
 		// to keep spacing between lines
 		String spacing = "";
 
-		Scanner sc = new Scanner(new FileInputStream(xProl));
+		Scanner sc = new Scanner(new FileInputStream(fileName));
 
 		// check entire document, will take each line as a string, keeping spacing
 		while (sc.hasNextLine()) {
@@ -54,6 +56,12 @@ public class XProlinguaConverter {
 		}
 
 		return engl;
+	}
+	
+	
+	public static void main(String [] args) throws FileNotFoundException {
+		XProlinguaConverter x = new XProlinguaConverter(); 
+		System.out.println(x.convertToEnglProlingua("spanish_example"));
 	}
 
 }
