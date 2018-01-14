@@ -20,3 +20,12 @@ dependencies {
     antlr "org.antlr:antlr4:4.7"
     compile group: 'org.antlr', name: 'antlr4', version: '4.7'
 }
+
+jar {
+    destinationDir = file( "." );
+    manifest {
+        attributes(
+            'Main-Class': 'tech.prolingua.Prolingua'
+        )
+    }
+}
