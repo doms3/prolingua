@@ -3,9 +3,8 @@ package tech.prolingua;
 import javax.json.Json;
 import javax.json.JsonObject;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.nio.file.Files;
 import java.util.Arrays;
 import java.util.Iterator;
@@ -14,7 +13,7 @@ import java.util.TreeMap;
 
 public class EnglishLanguageConverter {
 
-	public static String convert( File in, String language ) throws FileNotFoundException, IOException {
+	public static String convert( File in, String language ) throws IOException {
 		List<String> lines = Files.readAllLines( in.toPath() );
 		String allLines = "";
 		for ( String line : lines ) {
@@ -23,9 +22,10 @@ public class EnglishLanguageConverter {
 		return convert( allLines, language );
 	}
 
-	public static String convert( String in, String language ) throws FileNotFoundException {
+	public static String convert( String in, String language ) throws IOException {
 		TreeMap<String, String> cases = new TreeMap<>();
-		JsonObject translations = Json.createReader( new FileInputStream( "language_support/" + language + "/converter.json" ) ).readObject();
+		InputStream myStream = (EnglishLanguageConverter.class).getResourceAsStream( "src/main/resources/" + language + "/converter.json" );
+		JsonObject translations = Json.createReader( myStream ).readObject();
 		translations.forEach( ( r, s ) -> cases.put( s.toString().replaceAll("\"", "" ), r ) );
 
 		Iterator<String> iter = cases.navigableKeySet().descendingIterator();
