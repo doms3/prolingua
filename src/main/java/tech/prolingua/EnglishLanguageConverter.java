@@ -24,7 +24,7 @@ public class EnglishLanguageConverter {
 
 	public static String convert( String in, String language ) throws IOException {
 		TreeMap<String, String> cases = new TreeMap<>();
-		InputStream myStream = (EnglishLanguageConverter.class).getResourceAsStream( "src/main/resources/" + language + "/converter.json" );
+		InputStream myStream = (EnglishLanguageConverter.class).getResource( "/" + language + "/converter.json" ).openStream();
 		JsonObject translations = Json.createReader( myStream ).readObject();
 		translations.forEach( ( r, s ) -> cases.put( s.toString().replaceAll("\"", "" ), r ) );
 

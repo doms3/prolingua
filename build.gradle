@@ -34,4 +34,11 @@ jar {
     }
 }
 
+run {
+    def myArgs = findProperty( 'runArgs' )
+    if( myArgs != null ) {  
+        args myArgs.split()
+    } 
+}
+
 mainClassName = 'tech.prolingua.Prolingua'
