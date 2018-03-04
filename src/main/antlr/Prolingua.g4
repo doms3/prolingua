@@ -25,7 +25,7 @@ forstatement : 'for ' VAR ' in ' ( 'range ' RANGE | VAR );
 TAB : '\t';
 SYMBOL : '==' | '!=' | '&&' | '||' | '+' | '-' | '*' | '/' | '%' | '<=' | '<' | '>' | '>=';
 
-NEWLINE : '\n' | '\n\r';
+NEWLINE : '\n' | '\r\n';
 
 RANGE : INT ':' INT;
 fragment DIGIT : [0-9];
