@@ -10,7 +10,7 @@ repositories {
 
 def generatedJavaSourcesDir = 'src/main/java/generatedcode'
 
-generateGrammarSource{
+generateGrammarSource {
     outputDirectory = file(generatedJavaSourcesDir)
 }
 

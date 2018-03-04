@@ -121,14 +121,4 @@ public class PythonInterpreter extends ProlinguaBaseListener {
         walker.walk( this, tree );
         return python.toString();
     }
-
-
-    public static void main( String[] args ) throws Exception {
-        File file = new File("language_support/spanish/spanish_example.txt" );
-        String english = EnglishLanguageConverter.convert( file, "spanish" );
-
-        System.out.println( new PythonInterpreter( new ByteArrayInputStream( english.getBytes() ) ).getPython() );
-    }
-
-
 }
