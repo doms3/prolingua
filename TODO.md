@@ -1,6 +1,6 @@
 - [ ] Fix gradlew wrapper
 - [ ] Fix JUnit dependency
-- [ ] Output invalid input messages to stderr instead of stdout
+- [x] Output invalid input messages to stderr instead of stdout
 - [ ] Improve executable with OS specific execution scripts
 - [ ] Add more unit testing
 - [ ] Linting?

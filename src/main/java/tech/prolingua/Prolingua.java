@@ -12,10 +12,12 @@ public class Prolingua {
         final List<String> supportedLanguages = Arrays.asList( "english", "spanish" );
 
         if( args.length == 0 || !flags.contains( args[0] ) ) {
-            System.out.println( invalidInput );
+            System.err.println( invalidInput );
+            System.exit( 1 );
         } else if( "--help".equals( args[0] ) ) {
             if( args.length > 1 ) {
-                System.out.println( invalidInput );
+                System.err.println( invalidInput );
+                System.exit( 1 );
             } else {
                 System.out.print(
                         "Welcome to the prolingua compiler, please use one of the following flags:\n\r\t" +
@@ -26,16 +28,20 @@ public class Prolingua {
                         "This statement will output a file named myfile.py to the cwd.\n\r\t\t" +
                         "Example use: prolingua -t myfile.pro spanish\n\r\t" +
                         "Languages are specified in lower case. Currently supported languages are English and Spanish.\n\t" );
+                System.exit( 0 );        
             }
         } else if( args.length != 3 ) {
-            System.out.println(invalidInput);
+            System.err.println(invalidInput);
+            System.exit( 1 );
         } else if( !supportedLanguages.contains( args[2] ) ) {
-            System.out.println( "That language is not supported yet! Please use the \"--help\" flag for more info." );
+            System.err.println( "That language is not supported yet! Please use the \"--help\" flag for more info." );
+            System.exit( 1 );
         } else {
             File inFile = new File( args[1] );
             String[] fileParts = inFile.getName().split("\\Q.\\E" );
             if( !"pro".equals( fileParts[fileParts.length - 1] ) ) {
-                System.out.println( "Input file must have the .pro extension!" );
+                System.err.println( "Input file must have the .pro extension!" );
+                System.exit( 1 );
             } else {
                 try {
                     String raw = readFile( inFile );
@@ -52,15 +58,19 @@ public class Prolingua {
                             }
                         } catch ( IOException e2 ) {
                             System.err.println( "Fatal Error: Could not write to output file.");
+                            System.exit( 1 );
                         }
                     } catch ( IOException e1 ) {
-                        System.err.println( "Fatal Error: Could not find translation encoding for " + args[2] + ".");
+                        System.err.println( "Fatal Error: Could not find translation encoding for " + args[2] + "." );
+                        System.exit( 1 );
                     }
                 } catch( IOException e ) {
-                    System.err.println( "Fatal Error: Could not read from input file. Does it exist?");
+                    System.err.println( "Fatal Error: Could not read from input file. Does it exist?" );
+                    System.exit( 1 );
                 }
             }
         }
+        System.exit( 0 );
     }
 
     private static String translate( String in, String language ) throws IOException {
