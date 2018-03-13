@@ -1,7 +1,8 @@
 apply plugin: 'java'
 apply plugin: 'antlr'
-
 apply plugin: 'application'
+
+mainClassName = "tech.prolingua.Prolingua"
 
 repositories {
     jcenter()
@@ -41,5 +42,3 @@ run {
         args myArgs.split()
     } 
 }
-
-mainClassName = 'tech.prolingua.Prolingua'

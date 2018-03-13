@@ -1,7 +1,7 @@
-- [ ] Fix gradlew wrapper
+- [x] Fix gradlew wrapper
 - [x] Fix JUnit dependency
 - [x] Output invalid input messages to stderr instead of stdout
-- [ ] Improve executable with OS specific execution scripts
+- [x] Improve executable with OS specific execution scripts
 - [ ] Add more unit testing
 - [ ] Linting?
 - [ ] Make sure GRAMMAR.md is correct
