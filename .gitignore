@@ -2,7 +2,8 @@
 *.class
 *.py
 *.pro
-
+out/
+bin/
 
 # Log file
 *.log
@@ -31,8 +32,12 @@ build/
 # IDE Files
 .idea/
 *.iml
+.vscode/
+.classpath
+.project
+.settings
 
 # ANTLR
 generatedcode/
 
-out/
+
