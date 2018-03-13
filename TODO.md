@@ -4,3 +4,4 @@
 - [ ] Improve executable with OS specific execution scripts
 - [ ] Add more unit testing
 - [ ] Linting?
+- [ ] Make sure GRAMMAR.md is correct
